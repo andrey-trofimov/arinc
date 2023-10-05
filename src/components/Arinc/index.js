@@ -12,11 +12,26 @@ function Arinc() {
         dispatch(setRegExp(reg))
     }
 
-    
+    function handlerChange(e, i) {
+        let newArr = [...arr];
+        newArr.splice(i, 1, String(e.target.value));
+        newArr = newArr.map(el => (el === "") || (el === " ") ? "." : el).join("");
+        dispatch(setRegExp(newArr));
+
+        console.log(newArr);
+    }
+
+    let arr = regExp.split("").map(el => el === "." ? "" : el);
+
     return (
         <div className="Arinc">
-            <input tipe="text" value={regExp} onChange={handler} maxLength={132}></input>
+            {/* <input tipe="text" value={regExp} onChange={handler} maxLength={132} /> */}
             <div className={style}></div>
+            <div className="row">
+                {arr.map((el, i) => (<input type="text" key={i} value={el} maxLength={1} onChange={(e) => handlerChange(e, i)} />))}
+            </div>
+
+
         </div>
     )
 }

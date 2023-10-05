@@ -17,10 +17,9 @@ function InputFile(props) {
             let arr = [];
             setLabelText(e.target.files[0].name)
 
-            reader.readAsText(e.target.files[0], 'windows-1251');
+            reader.readAsText(e.target.files[0], 'UTF-8');
             reader.onprogress = () => { setIcon({ img: spinner, alt: "spinner", class: "spinner" }) };
             reader.onload = () => {
-                // arr = reader.result.split(/\r\n|\n/);
                 arr = reader.result;
                 dispatch(reducer(arr));
             };
