@@ -1,0 +1,49 @@
+.InputFile {
+
+    input {
+        visibility: hidden;
+    }
+
+    label {
+        border-radius: 50px;
+        background-color: lightsteelblue;
+        padding: 10px 20px 10px 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        height: 30px;
+    }
+
+    label:hover {
+        background-color: khaki;
+        transition-property: background-color;
+        transition-duration: 0.5s;
+    }
+
+    .ok {
+        opacity: 50%;
+    }
+
+    .ok,
+    .spinner {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+        margin-right: -10px;
+    }
+
+    .spinner {
+        animation: rotate 3s linear infinite;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg)
+        }
+
+        100% {
+            transform: rotate(360deg)
+        }
+    }
+}

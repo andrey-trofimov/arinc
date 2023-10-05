@@ -1,0 +1,21 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    div {
+        border-right: thin solid lightgray;
+        flex: 1;
+        
+    padding: 3px 0;
+    }
+
+    div:last-child{
+        border-right: none;
+    }
+}
+
+.row:nth-child(2n){
+    background-color: antiquewhite;
+}
