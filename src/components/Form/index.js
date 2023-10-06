@@ -16,22 +16,23 @@ function Form() {
 
     let dispatch = useDispatch();
 
+    function choosePartDb(db, dispDb, reg) {
+        if (db !== "") {
+            let arr = [];
+            arr = db.match(reg) || "";
+            arr = arr ? arr.join("\n") : "";
+            dispatch(dispDb(arr));
+        }
+    }
+
     function selectHandler(e) {
         let reg = RegExp(re[e.target.value], "gi");
+
         dispatch(setRegExp(re[e.target.value]));
         dispatch(setLayout(e.target.value));
 
-        if (szrcaiDb !== "") {
-            let arr = [];
-            arr = szrcaiDb.match(reg) || [];
-            dispatch(setSzrcaiPartDb(arr));
-        }
-
-        if (aeroflotDb !== "") {
-            let arr = [];
-            arr = aeroflotDb.match(reg) || [];
-            dispatch(setAeroflotPartDb(arr));
-        }
+        choosePartDb(szrcaiDb, setSzrcaiPartDb, reg);
+        choosePartDb(aeroflotDb, setAeroflotPartDb, reg);
     }
 
     return (<div className="Form">

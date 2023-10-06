@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     szrcaiDb: "",
     aeroflotDb: "",
-    szrcaiPartDb: [],
-    aeroflotPartDb: [],
+    szrcaiPartDb: "",
+    aeroflotPartDb: "",
     regExp: "....ep..............................................................................................................................",
     layout: "ep",
 }

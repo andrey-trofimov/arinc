@@ -4,45 +4,39 @@ import "./style.scss";
 
 function Result() {
     let { szrcaiPartDb, aeroflotPartDb, regExp, } = useSelector((state) => state.db);
-    let reg = RegExp(regExp, "i");
+    let reg = RegExp(regExp, "gi");
 
-    let [arrSample, setArrSample] = useState([]);
-    let [arrTest, setArrTest] = useState([]);
     let [arrTotal, setArrTotal] = useState([]);
 
-    useEffect(() => {
+    function sortSubDb(db){
         let arr = [];
-        if (aeroflotPartDb.length) {
-            arr = aeroflotPartDb.filter(el => reg.test(el));
+        if (db !== "") {
+            arr = db.match(reg) || [];
             arr = arr.length ? arr.map(el => el.split("")) : [];
         }
-        setArrSample(arr);
-    }, [aeroflotPartDb, regExp])
 
-    useEffect(() => {
-        let arr = [];
-        if (szrcaiPartDb.length) {
-            arr = szrcaiPartDb.filter(el => reg.test(el));
-            arr = arr.length ? arr.map(el => el.split("")) : [];
-        }
-        setArrTest(arr);
-    }, [szrcaiPartDb, regExp])
+        console.log(arr)
+        return arr;
+    }
 
-    useEffect(() => {
+    useEffect(() => {        
+        let arrSample = sortSubDb(aeroflotPartDb);
+        let arrTest = sortSubDb(szrcaiPartDb);
+        
         let arr = [];
-        if (arrSample.length && arrTest.length) {
+        if (arrSample.length || arrTest.length) {
             let max = arrSample.length >= arrTest.length ? arrSample.length : arrTest.length;
             for (let i = 0; i < max; i++) {
-                arr = (arrSample[i] && [...arr, arrSample[i]]) || [...arr];
-                arr = (arrTest[i] && [...arr, arrTest[i]]) || [...arr];
+                arr = (arrSample[i] && [...arr, {row: arrSample[i], style: "sample"}]) || [...arr];
+                arr = (arrTest[i] && [...arr, {row: arrTest[i], style: "test"}]) || [...arr];
             }
         }
-        setArrTotal(arr)
-    }, [arrSample, arrTest])
+        setArrTotal(arr);
+    }, [aeroflotPartDb, szrcaiPartDb, regExp])
 
     return (
         <div className="Result">
-            {arrTotal.slice(0,100).map((el, i) => (<div className="row" key={i}>{el.map((e, i) => (<div key={i}>{e}</div>))}</div>))}
+            {arrTotal.slice(0,100).map((el, i) => (<div className={`row ${el.style}`} key={i}>{el.row.map((e, i) => (<div key={i}>{e}</div>))}</div>))}
         </div>
     )
 }
