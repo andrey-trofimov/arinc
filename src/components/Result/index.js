@@ -4,18 +4,16 @@ import "./style.scss";
 
 function Result() {
     let { szrcaiPartDb, aeroflotPartDb, regExp, } = useSelector((state) => state.db);
-    let reg = RegExp(regExp, "gi");
+    let reg = RegExp(regExp, "i");
 
     let [arrTotal, setArrTotal] = useState([]);
 
     function sortSubDb(db){
         let arr = [];
-        if (db !== "") {
-            arr = db.match(reg) || [];
+        if (db.length) {
+            arr = db.filter(el => reg.test(el)) || [];
             arr = arr.length ? arr.map(el => el.split("")) : [];
         }
-
-        console.log(arr)
         return arr;
     }
 
