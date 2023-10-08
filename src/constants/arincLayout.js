@@ -1,0 +1,56 @@
+export let arincLayout = {
+  // xx: {
+  //   title: "",
+  //   re: ".{4}xx{128}",
+  //   contNr: [
+  //     {
+  //       title: "4.1.5.1 Holding Pattern Primary",
+  //       layout: [
+  //         { name: "Record Type (1) ", reference: "5.2 ", textDirection: "" },
+  //         { name: "Record Type (1) ", reference: "5.2 ", textDirection: "" },
+  //       ],
+  //     },
+  //   ],
+  // },
+  ep: {
+    title: "Holding Pattern (EP)",
+    re: ".{4}ep{128}",
+    contNr: [
+      {
+        title: "4.1.5.1 Holding Pattern Primary",
+        layout: [
+          { name: "Record Type (1) ", reference: "5.2 ", textDirection: "" },
+          { name: "Customer/Area Code (3) ", reference: "5.3 ", textDirection: "" },
+          { name: "Section Code (1) ", reference: "5.4 ", textDirection: "" },
+          { name: "Subsection Code (1) ", reference: "5.5 ", textDirection: "" },
+          { name: "Region Code (4) ", reference: "5.41 ", textDirection: "" },
+          { name: "ICAO Code (2) ", reference: "5.14 ", textDirection: "" },
+          { name: "Blank (Spacing) (15) ", reference: " ", textDirection: "" },
+          { name: "Duplicate Identifier (2) ", reference: "5.114 ", textDirection: "" },
+          { name: "Fix Identifier (5) ", reference: "5.13 ", textDirection: "" },
+          { name: "ICAO Code (2) ", reference: "5.14 ", textDirection: "" },
+          { name: "Section Code (1) ", reference: "5.4 ", textDirection: "" },
+          { name: "Subsection Code (1) ", reference: "5.5 ", textDirection: "" },
+          { name: "Continuation Record No. (1) ", reference: "5.16 ", textDirection: "" },
+          { name: "Inbound Holding Course (4) ", reference: "5.62 ", textDirection: "" },
+          { name: "Turn Direction (1) ", reference: "5.63 ", textDirection: "" },
+          { name: "Leg Length (3) ", reference: "5.64 ", textDirection: "" },
+          { name: "Leg Time (2) ", reference: "5.65 ", textDirection: "" },
+          { name: "Minimum Altitude (5) ", reference: "5.30 ", textDirection: "" },
+          { name: "Maximum Altitude (5) ", reference: "5.127 ", textDirection: "" },
+          { name: "Holding Speed (3) ", reference: "5.175 ", textDirection: "" },
+          { name: "RNP (3) ", reference: "5.211 ", textDirection: "" },
+          { name: "Arc Radius (6) ", reference: "5.204 ", textDirection: "" },
+          { name: "Vertical Scale Factor (3) ", reference: "5.293 ", textDirection: "" },
+          { name: "RVSM Minimum Level (3) ", reference: "5.294 ", textDirection: "" },
+          { name: "RVSM Maximum Level (3) ", reference: "5.295 ", textDirection: "" },
+          { name: "Leg Inbound/Outbound Indicator (1) ", reference: "5.298 ", textDirection: "" },
+          { name: "Reserved (Expansion) (17) ", reference: " ", textDirection: "" },
+          { name: "Name (25) ", reference: "5.60 ", textDirection: "" },
+          { name: "File Record No. (5) ", reference: "5.31 ", textDirection: "" },
+          { name: "Cycle Date (4) ", reference: "5.32 ", textDirection: "" },
+        ],
+      },
+    ],
+  },
+};
