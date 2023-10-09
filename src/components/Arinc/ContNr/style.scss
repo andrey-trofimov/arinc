@@ -1,0 +1,35 @@
+// ContNr
+
+.ContNr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    background-color: whitesmoke;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15px;
+        height: 15px;
+        margin: 5px;
+
+        border-radius: 50px;
+        vertical-align: baseline;
+        cursor: pointer;
+
+        transition-property: background-color;
+        transition-duration: 0.5s;
+
+        &:hover {
+            background-color: wheat;
+            transition-property: background-color;
+            transition-duration: 0.5s;
+        }
+    }
+
+    .selected {
+        background-color: lightsteelblue;
+    }
+}

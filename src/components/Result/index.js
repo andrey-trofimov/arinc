@@ -35,6 +35,8 @@ function Result() {
     return (
         <div className="Result">
             {arrTotal.slice(0,100).map((el, i) => (<div className={`row ${el.style}`} key={i}>{el.row.map((e, i) => (<div key={i}>{e}</div>))}</div>))}
+            <br/>
+            <div className="pagination">Всего найдено строк: {arrTotal.length}</div>
         </div>
     )
 }

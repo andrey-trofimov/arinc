@@ -1,14 +1,7 @@
-import {
-  setAeroflotDb,
-  setSzrcaiDb,
-  setAeroflotPartDb,
-  setSzrcaiPartDb,
-  setPartDbMask,
-  setLayout,
-} from "../../redux/slice/dbSlice";
+import { setAeroflotDb, setSzrcaiDb, setAeroflotPartDb, setSzrcaiPartDb, setPartDbMask, setLayout, setContNr } from "../../redux/slice/dbSlice";
 import { useDispatch, useSelector } from "react-redux";
 import InputFile from "./InputFile";
-import { re, headerSelect } from "../../constants/re";
+import { arincLayout } from "../../constants/arincLayout";
 import "./style.scss";
 
 function Form() {
@@ -20,14 +13,18 @@ function Form() {
       let arr = [];
       arr = db.match(reg) || [];
       dispatch(dispDb(arr));
+
+      console.log(reg, arr)
     }
   }
 
   function selectHandler(e) {
-    let reg = RegExp(re[e.target.value], "gi");
+    let ssCode= e.target.value;
+    let reg = RegExp(arincLayout[ssCode].re, "gi");
 
-    dispatch(setRegExp(re[e.target.value]));
-    dispatch(setLayout(e.target.value));
+    dispatch(setPartDbMask(arincLayout[ssCode].re));
+    dispatch(setLayout(ssCode));
+    dispatch(setContNr(0));
 
     choosePartDb(szrcaiDb, setSzrcaiPartDb, reg);
     choosePartDb(aeroflotDb, setAeroflotPartDb, reg);
@@ -39,9 +36,9 @@ function Form() {
       <InputFile title="Файл для проверки" reducer={setSzrcaiDb} id="test" />
 
       <select onChange={selectHandler}>
-        {headerSelect.map((el, i) => (
-          <option value={el.value} key={i}>
-            {el.title}
+        {Object.keys(arincLayout).map((el, i) => (
+          <option value={el} key={i}>
+            {arincLayout[el].title}
           </option>
         ))}
       </select>

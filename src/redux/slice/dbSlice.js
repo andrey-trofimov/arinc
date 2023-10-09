@@ -4,11 +4,11 @@ const initialState = {
   szrcaiDb: "",
   aeroflotDb: "",
   partDbMask: ".{4}ep.{126}",
+  contNr: 0,
   szrcaiPartDb: [],
   aeroflotPartDb: [],
-  regExp:
-    "....ep..............................................................................................................................",
-  layout: "ep",
+  regExp: "....................................................................................................................................",
+  layout: "dbpn",
 };
 
 export const dbSlice = createSlice({
@@ -23,6 +23,9 @@ export const dbSlice = createSlice({
     },
     setPartDbMask: (state, action) => {
       state.partDbMask = action.payload;
+    },
+    setContNr: (state, action) => {
+      state.contNr = action.payload;
     },
     setSzrcaiPartDb: (state, action) => {
       state.szrcaiPartDb = action.payload;
@@ -39,7 +42,7 @@ export const dbSlice = createSlice({
   },
 });
 
-export const { setSzrcaiDb, setAeroflotDb, setPartDbMask, setSzrcaiPartDb, setAeroflotPartDb, setRegExp, setLayout } =
+export const { setSzrcaiDb, setAeroflotDb, setPartDbMask, setContNr, setSzrcaiPartDb, setAeroflotPartDb, setRegExp, setLayout } =
   dbSlice.actions;
 
 export default dbSlice.reducer;
