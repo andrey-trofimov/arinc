@@ -1,0 +1,30 @@
+// Layout
+
+.Layout {
+    border-top: thick solid lightgray;
+
+    .row {
+        display: flex;
+        border-bottom: thin solid lightgray;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url(../../../img/border.png) right repeat-y;
+        
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.8rem;
+        text-align: center;
+        vertical-align: bottom;
+        padding: 3px 0;
+    }
+
+    .vertically {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        background-position: left;
+    }
+}

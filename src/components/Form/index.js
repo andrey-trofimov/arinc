@@ -1,4 +1,4 @@
-import { setAeroflotDb, setSzrcaiDb, setAeroflotPartDb, setSzrcaiPartDb, setPartDbMask, setLayout, setContNr } from "../../redux/slice/dbSlice";
+import { setAeroflotDb, setSzrcaiDb, setAeroflotPartDb, setSzrcaiPartDb, setPartDbMask, setLayout, setContNr, setRegExp } from "../../redux/slice/dbSlice";
 import { useDispatch, useSelector } from "react-redux";
 import InputFile from "./InputFile";
 import { arincLayout } from "../../constants/arincLayout";
@@ -7,6 +7,7 @@ import "./style.scss";
 function Form() {
   let { szrcaiDb, aeroflotDb } = useSelector((state) => state.db);
   let dispatch = useDispatch();
+  let defaultRegExp = [...Array(132).fill(".")].join("");
 
   function choosePartDb(db, dispDb, reg) {
     if (db !== "") {
@@ -19,12 +20,13 @@ function Form() {
   }
 
   function selectHandler(e) {
-    let ssCode= e.target.value;
+    let ssCode = e.target.value;
     let reg = RegExp(arincLayout[ssCode].re, "gi");
 
     dispatch(setPartDbMask(arincLayout[ssCode].re));
     dispatch(setLayout(ssCode));
     dispatch(setContNr(0));
+    dispatch(setRegExp(defaultRegExp))
 
     choosePartDb(szrcaiDb, setSzrcaiPartDb, reg);
     choosePartDb(aeroflotDb, setAeroflotPartDb, reg);
@@ -46,4 +48,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default Form; 

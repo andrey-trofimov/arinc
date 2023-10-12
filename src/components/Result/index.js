@@ -6,7 +6,7 @@ function Result() {
     let { szrcaiPartDb, aeroflotPartDb, regExp, } = useSelector((state) => state.db);
     let reg = RegExp(regExp, "i");
 
-    let [arrTotal, setArrTotal] = useState([]);
+    let [arrTotal, setArrTotal] = useState([]); 
 
     function sortSubDb(db){
         let arr = [];
@@ -36,7 +36,7 @@ function Result() {
         <div className="Result">
             {arrTotal.slice(0,100).map((el, i) => (<div className={`row ${el.style}`} key={i}>{el.row.map((e, i) => (<div key={i}>{e}</div>))}</div>))}
             <br/>
-            <div className="pagination">Всего найдено строк: {arrTotal.length}</div>
+            <div className="pagination">Найдено строк: {arrTotal.length}</div>
         </div>
     )
 }
