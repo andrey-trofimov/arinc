@@ -9,11 +9,17 @@
         transition-property: background-color;
         transition-duration: 0.5s;
 
+        .border {
+            background: url("../../img/border.png") repeat-y right;
+        }
+
         div {
-            border-right: thin solid lightgray;
+            // border-right: thin solid lightgray;
             flex: 1;
 
             padding: 3px 0;
+
+
         }
 
         div:last-child {

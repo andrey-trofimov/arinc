@@ -13,7 +13,7 @@ function ContNr() {
         // Для 132 инпутов форимруется и диспачится новый шаблон, включающий contNr
         let l = arincLayout[layout].contNr[contNr].layout;
         let arr = regExp.split("").map(el => el === "." ? "" : el);
-        let flexArr = l.map(el => +el.name.match(/\d/gi).join(""));
+        let flexArr = l.map(el => +el.name.match(/\(\d+\)/gi).join("").match(/\d/gi).join(""));
         let contNrIndexInLayout = l.findIndex(el => el.name.includes("Continuation Record No") || el.name.includes("Continuation Number") || el.name.includes("Continuation Record Number"));
         let contNrPositionInInputs = flexArr.reduce((acc, el, i, arr) => i < contNrIndexInLayout ? acc + el : acc, 0);
         arr.splice(contNrPositionInInputs, 1, i)
