@@ -1,0 +1,36 @@
+// Pagination
+
+.Pagination {
+    position:fixed;
+    bottom: 0;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-top: thick solid lightgrey;
+    width: calc(100% - 60px);
+
+    button {
+        background-color: lightsteelblue;
+        transition-property: background-color;
+        transition-duration: 0.5s;
+        border: 0;
+        cursor: pointer;
+        border-radius: 50px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+
+        &:hover {
+            background-color: wheat;
+            transition-property: background-color;
+            transition-duration: 0.5s;
+        }
+
+        &:last-child{margin-left: 15px;}
+    }
+
+    .info{
+        margin: 0 50px;
+    }
+    
+    
+}

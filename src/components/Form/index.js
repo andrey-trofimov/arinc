@@ -1,4 +1,5 @@
 import { setAeroflotDb, setSzrcaiDb, setAeroflotPartDb, setSzrcaiPartDb, setPartDbMask, setLayout, setContNr, setRegExp } from "../../redux/slice/dbSlice";
+import { setStartStr, setEndStr } from "../../redux/slice/paginationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import InputFile from "./InputFile";
 import { arincLayout } from "../../constants/arincLayout";
@@ -6,6 +7,7 @@ import "./style.scss";
 
 function Form() {
   let { szrcaiDb, aeroflotDb } = useSelector((state) => state.db);
+  let {strPerPage} = useSelector ((state) => state.pagination);
   let dispatch = useDispatch();
   let defaultRegExp = [...Array(132).fill(".")].join("");
 
@@ -27,6 +29,8 @@ function Form() {
     dispatch(setLayout(ssCode));
     dispatch(setContNr(0));
     dispatch(setRegExp(defaultRegExp))
+    dispatch(setStartStr(0));
+    dispatch(setEndStr(strPerPage));
 
     choosePartDb(szrcaiDb, setSzrcaiPartDb, reg);
     choosePartDb(aeroflotDb, setAeroflotPartDb, reg);

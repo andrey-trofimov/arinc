@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   szrcaiDb: "",
   aeroflotDb: "",
-  partDbMask: ".{4}ep.{126}",
+  partDbMask: ".{4}(db)|(pn).{126}",
   contNr: 0,
   szrcaiPartDb: [],
   aeroflotPartDb: [],
