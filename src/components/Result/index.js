@@ -15,7 +15,7 @@ function Result() {
     // Границы колонок
     let l = arincLayout[layout].contNr[contNr].layout;
     let flexArr = l.map(el => +el.name.match(/\(\d+\)/gi).join("").match(/\d/gi).join(""));
-    let border = flexArr.map((el, i) => flexArr.slice(0, i).reduce((acc, el, i, arr) => acc + el, 0));
+    let border = flexArr.map((el, i) => flexArr.slice(0, i + 1).reduce((acc, el, i, arr) => acc + el, 0));
 
     function sortSubDb(db) {
         let arr = [];

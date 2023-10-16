@@ -2,18 +2,18 @@
 
 .ContNr {
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
     font-size: 0.7rem;
     background-color: whitesmoke;
 
     div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 15px;
-        height: 15px;
+        padding: 5px;
+    }
+
+    span {
         margin: 5px;
+        padding: 5px;
 
         border-radius: 50px;
         vertical-align: baseline;
@@ -32,4 +32,19 @@
     .selected {
         background-color: lightsteelblue;
     }
+
+    .layout-cont-number {
+        flex: 2;
+        padding-left: 20px;
+    }
+    
+    .layout-title {
+        background-color: lightgray;
+
+        font-size: 1rem;
+        color: gray;
+        border-top-right-radius: 10px;
+        padding-right: 10px;
+    }
+
 }
