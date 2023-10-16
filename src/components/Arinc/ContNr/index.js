@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setContNr, setRegExp } from "../../../redux/slice/dbSlice";
 import { arincLayout } from "../../../constants/arincLayout";
@@ -7,7 +7,11 @@ import "./style.scss";
 function ContNr() {
     let dispatch = useDispatch();
     let { layout, contNr, regExp } = useSelector(state => state.db);
-    let [style, setStyle] = useState(Array(arincLayout[layout].contNr.length + 1).fill(""));
+    let [style, setStyle] = useState([]);
+
+    useEffect(() => {
+        setStyle(Array(arincLayout[layout].contNr.length + 1).fill(""));
+    }, [layout])
 
     function handlerClick(i, n) {
         dispatch(setContNr(i))
