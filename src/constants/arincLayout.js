@@ -89,7 +89,8 @@ export let arincLayout = {
           { column: "124 thru 128 ", name: "File Record No. (5) ", reference: "5.31 ", },
           { column: "129 thru 132 ", name: "Cycle Data (4) ", reference: "5.32 ", },
         ],
-      }, {
+      },
+      {
         title: "4.1.3.4 NDB NAVAID Flight Planning Continuation",
         layout: [
           { column: "1 ", name: "Record Type (1) ", reference: "5.2 ", },

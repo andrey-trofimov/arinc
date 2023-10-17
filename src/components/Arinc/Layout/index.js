@@ -7,11 +7,20 @@ function Layout() {
     let arr = [...Array(132).keys()];
     let l = arincLayout[layout].contNr[contNr].layout;
 
+    // Массивы значений ячеек шаблона
     let flexArr = l.map(el => +el.name.match(/\(\d+\)/gi).join("").match(/\d/gi).join(""));
     let titleArr = l.map(el => el.name.match(/[a-z]|\s/gi).join(""));
     let referenceArr = l.map(el => el.reference);
-    let styleArr = flexArr.map((el) => el < 3 ? "title vertically" : "title")
 
+    // Стили колонок
+    let setStyle = (i) => {
+        let verticallyStyle = flexArr[i] < 3 ? " vertically" : "";
+        let blankStyle = l[i].reference === " " ? " blank" : "";
+        return `title${verticallyStyle}${blankStyle}`
+    }
+    let styleArr = flexArr.map((_, i) => setStyle(i));
+
+    // контроль количества колонок в шаблоне
     let columns = flexArr.reduce((acc, el, i, arr) => acc + el, 0)
     console.log(`Layout: колонок в шаблоне - ${columns}`)
 
