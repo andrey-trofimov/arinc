@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setRegExp } from "../../../redux/slice/dbSlice";
+import { setStartStr, setEndStr, } from "../../../redux/slice/paginationSlice";
 import "./style.scss";
 
 function Inputs() {
-    let { regExp } = useSelector(state => state.db)
+    let { regExp } = useSelector(state => state.db);
+    let { strPerPage } = useSelector(state => state.pagination);
     let dispatch = useDispatch();
 
     let arr = regExp.split("").map(el => el === "." ? "" : el);
@@ -12,9 +14,12 @@ function Inputs() {
     function handlerChange(e, i) {
         let newArr = [...arr];
         newArr.splice(i, 1, String(e.target.value));
-        
+
         newArr = newArr.map(el => el === "" ? "." : el).join("");
         dispatch(setRegExp(newArr));
+
+        dispatch(setStartStr(0));
+        dispatch(setEndStr(strPerPage));
     }
 
     return (
