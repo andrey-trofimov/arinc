@@ -2,8 +2,7 @@
 
 .ContNr {
     display: flex;
-    justify-content:flex-start;
-    align-items: center;
+    justify-content: flex-start;
     font-size: 0.7rem;
     background-color: whitesmoke;
 
@@ -12,11 +11,15 @@
     }
 
     span {
-        margin: 5px;
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin: 0 5px;
         padding: 5px;
 
         border-radius: 50px;
         vertical-align: baseline;
+        text-align: center;
         cursor: pointer;
 
         transition-property: background-color;
@@ -37,14 +40,13 @@
         flex: 2;
         padding-left: 20px;
     }
-    
+
     .layout-title {
         background-color: lightgray;
-
         font-size: 1rem;
         color: gray;
         border-top-right-radius: 10px;
-        padding-right: 10px;
+        padding: 7px 15px 5px 10px;
     }
 
 }
