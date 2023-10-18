@@ -550,8 +550,6 @@ export let arincLayout = {
           { column: "129 thru 132 ", name: "Cycle Date (4) ", reference: "5.32 ", },
         ],
       },
-
-
     ],
   },
 
