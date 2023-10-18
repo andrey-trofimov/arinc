@@ -6,8 +6,8 @@ import { arincLayout } from "../../constants/arincLayout";
 import "./style.scss";
 
 function Form() {
-  let { szrcaiDb, aeroflotDb } = useSelector((state) => state.db);
-  let {strPerPage} = useSelector ((state) => state.pagination);
+  let { szrcaiDb, aeroflotDb, regExp } = useSelector((state) => state.db);
+  let { strPerPage } = useSelector((state) => state.pagination);
   let dispatch = useDispatch();
   let defaultRegExp = [...Array(132).fill(".")].join("");
 
@@ -21,6 +21,11 @@ function Form() {
     }
   }
 
+  function chooseDbPart(reg) {
+    choosePartDb(szrcaiDb, setSzrcaiPartDb, reg);
+    choosePartDb(aeroflotDb, setAeroflotPartDb, reg);
+  }
+
   function selectHandler(e) {
     let ssCode = e.target.value;
     let reg = RegExp(arincLayout[ssCode].re, "gi");
@@ -32,9 +37,14 @@ function Form() {
     dispatch(setStartStr(0));
     dispatch(setEndStr(strPerPage));
 
-    choosePartDb(szrcaiDb, setSzrcaiPartDb, reg);
-    choosePartDb(aeroflotDb, setAeroflotPartDb, reg);
+    chooseDbPart(reg)
   }
+
+  // Пользовательский поиск по значениям инпутов
+  function customSearch() {
+    let reg = RegExp(regExp, "gi");    
+    chooseDbPart(reg)
+  } 
 
   return (
     <div className="Form">
@@ -48,6 +58,10 @@ function Form() {
           </option>
         ))}
       </select>
+
+      <div className="customSearch">
+        <button onClick={customSearch}>Выбрать</button>
+      </div>
     </div>
   );
 }

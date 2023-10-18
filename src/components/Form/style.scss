@@ -5,7 +5,7 @@
     padding: 20px 0;
     background-color: whitesmoke;
 
-    select {
+    select, button {
         border: none;
         border-radius: 50px;
         background-color: lightsteelblue;
@@ -19,10 +19,20 @@
         font-size: 1rem;
     }
 
-    select:hover {
+    button{
+        background-color: white;
+        color: rgb(168, 168, 168);
+    }
+
+    select:hover, button:hover {
         background-color: wheat;
         transition-property: background-color;
         transition-duration: 0.5s;
+        color: black;
+    }
+
+    button:disabled{
+        background-color: lightgrey;
     }
 
     select:focus,

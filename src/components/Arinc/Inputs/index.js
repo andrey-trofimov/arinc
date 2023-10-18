@@ -34,7 +34,7 @@ function Inputs() {
 
     return (
         <div className="Inputs">
-            {arr.map((el, i) => (<input className={style[i]} type="text" key={i} value={el} maxLength={1} onChange={(e) => handlerChange(e, i)} />))}
+            {arr.map((el, i) => (<input className={style[i]} type="text" title={i + 1} key={i} value={el} maxLength={1} onChange={(e) => handlerChange(e, i)} />))}
         </div>
     )
 }
