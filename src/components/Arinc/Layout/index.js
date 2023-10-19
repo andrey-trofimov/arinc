@@ -35,7 +35,7 @@ function Layout() {
             </div>
 
             <div className="row">
-                {titleArr.map((el, i) => <div key={i} style={{ flex: flexArr[i] }} className={styleArr[i]}>{el}</div>)}
+                {titleArr.map((el, i) => <div key={i} style={{ flex: flexArr[i] }} title={el} className={styleArr[i]}>{el}</div>)}
             </div>
         </div>
     )
