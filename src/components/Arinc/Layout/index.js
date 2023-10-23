@@ -10,7 +10,8 @@ function Layout() {
     // Массивы значений ячеек шаблона
     let flexArr = l.map(el => +el.name.match(/\(\d+\)/gi).join("").match(/\d/gi).join(""));
     let titleArr = l.map(el => el.name.match(/[a-z]|\s/gi).join(""));
-    let referenceArr = l.map(el => el.reference === " " ? "" : el.reference.match(/\d\.\d+/gi).join(""));
+    let referenceArr = l.map(el => !(/\d\.\d+/gi).test(el.reference) ? "" : el.reference.match(/\d\.\d+/gi).join(""));
+    // let referenceArr = l.map(el => el.reference === " " ? "" : el.reference.match(/\d\.\d+/gi).join(""));
 
     // Стили колонок
     let setStyle = (i) => {

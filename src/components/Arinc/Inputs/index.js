@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setRegExp } from "../../../redux/slice/dbSlice";
 import { setStartStr, setEndStr, } from "../../../redux/slice/paginationSlice";
@@ -28,13 +28,36 @@ function Inputs() {
         dispatch(setRegExp(newArr));
         dispatch(setStartStr(0));
         dispatch(setEndStr(strPerPage));
-
-        // console.log(newArr)
+        
+        // inpRef.current[i + 1].focus();
+        // inpRef.current[i + 1].select();
     }
+
+    // function moveFocus(e,i) {
+    //     let j = e.code === "Backspace" ? i - 1 : i + 1;
+
+        
+
+    //     console.log(e.code)
+    // }
+
+    let inpRef = useRef([]);
 
     return (
         <div className="Inputs">
-            {arr.map((el, i) => (<input className={style[i]} type="text" title={i + 1} key={i} value={el} maxLength={1} onChange={(e) => handlerChange(e, i)} />))}
+            {arr.map((el, i) => (
+                <input
+                    ref={e => inpRef.current[i] = e}
+                    className={style[i]}
+                    type="text"
+                    title={i + 1}
+                    key={i}
+                    value={el}
+                    maxLength={1}
+                    onChange={e => handlerChange(e, i)}
+                    // onKeyDown={e => moveFocus(e, i)}
+                />
+            ))}
         </div>
     )
 }
