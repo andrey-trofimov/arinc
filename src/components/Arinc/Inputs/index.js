@@ -5,9 +5,11 @@ import { setStartStr, setEndStr, } from "../../../redux/slice/paginationSlice";
 import "./style.scss";
 
 function Inputs() {
+    let backspaceFlag = false;
     let { regExp, partDbMask } = useSelector(state => state.db);
     let { strPerPage } = useSelector(state => state.pagination);
     let dispatch = useDispatch();
+    let inpRef = useRef([]);
 
     // Заполнение инпутов при смене шаблона
     useEffect(() => {
@@ -20,6 +22,11 @@ function Inputs() {
     let arr = regExp.split("").map(el => el === "." ? "" : el);
     let style = arr.map(el => el !== "" ? "input bg" : "input")
 
+    function focusSelect(i) {
+        inpRef.current[i].focus();
+        inpRef.current[i].select();
+    }
+
     function handlerChange(e, i) {
         let newArr = [...arr];
         newArr.splice(i, 1, String(e.target.value));
@@ -28,20 +35,16 @@ function Inputs() {
         dispatch(setRegExp(newArr));
         dispatch(setStartStr(0));
         dispatch(setEndStr(strPerPage));
-        
-        // inpRef.current[i + 1].focus();
-        // inpRef.current[i + 1].select();
+
+        let j = (e.target.value === "") && (backspaceFlag === true) ? i - 1 : i + 1;
+        focusSelect(j);
     }
 
-    // function moveFocus(e,i) {
-    //     let j = e.code === "Backspace" ? i - 1 : i + 1;
-
-        
-
-    //     console.log(e.code)
-    // }
-
-    let inpRef = useRef([]);
+    function handlerKeyDown(e, i) {
+        backspaceFlag = e.code === "Backspace" ? true : false;
+        if (e.code === "ArrowLeft") (focusSelect(i - 1));
+        if (e.code === "ArrowRight") (focusSelect(i + 1));
+    }
 
     return (
         <div className="Inputs">
@@ -55,7 +58,7 @@ function Inputs() {
                     value={el}
                     maxLength={1}
                     onChange={e => handlerChange(e, i)}
-                    // onKeyDown={e => moveFocus(e, i)}
+                    onKeyDown={e => handlerKeyDown(e, i)}
                 />
             ))}
         </div>
