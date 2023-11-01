@@ -555,6 +555,100 @@ export let arincLayout = {
 
   // 4.1.7 Airport Records (PA)
 
+  pa: {
+    title: "Airport Records (PA)",
+    re: "....p.......a.......................................................................................................................",
+    contNr: [
+      {
+        title: "4.1.7.1 Airport Primary Records ", layout: [
+
+          { column: "1 ", name: "Record Type (1) ", reference: "5.2 ", },
+          { column: "2 thru 4 ", name: "Customer/Area Code (3) ", reference: "5.3 ", },
+          { column: "5 ", name: "Section Code (1) ", reference: "5.4 ", },
+          { column: "6 ", name: "Blank (Spacing) (1) ", reference: " ", },
+          { column: "7 thru 10 ", name: "Airport ICAO Identifier (4) ", reference: "5.6 ", },
+          { column: "11 thru 12 ", name: "ICAO Code (2) ", reference: "5.14 ", },
+          { column: "13 ", name: "Subsection Code (1) ", reference: "5.5 ", },
+          { column: "14 thru 16 ", name: "ATA/IATA Designator (3) ", reference: "5.107 ", },
+          { column: "17 thru 18 ", name: "Reserved (Expansion) (2) ", reference: " ", },
+          { column: "19 thru 21 ", name: "Blank (Spacing) (3) ", reference: " ", },
+          { column: "22 ", name: "Continuation Record Number (1) ", reference: "5.16 ", },
+          { column: "23 thru 27 ", name: "Speed Limit Altitude (5) ", reference: "5.73 ", },
+          { column: "28 thru 30 ", name: "Longest Runway (3) ", reference: "5.54 ", },
+          { column: "31 ", name: "IFR Capability (1) ", reference: "5.108 ", },
+          { column: "32 ", name: "Longest Runway Surface Code (1) ", reference: "5.249 ", },
+          { column: "33 thru 41 ", name: "Airport Reference Point Latitude (9) ", reference: "5.36 ", },
+          { column: "42 thru 51 ", name: "Airport Reference Point Longitude (10) ", reference: "5.37 ", },
+          { column: "52 thru 56 ", name: "Magnetic Variation (5) ", reference: "5.39 ", },
+          { column: "57 thru 61 ", name: "Airport Elevation (5) ", reference: "5.55 ", },
+          { column: "62 thru 64 ", name: "Speed Limit (3) ", reference: "5.72 ", },
+          { column: "65 thru 68 ", name: "Recommended Navaid (4) ", reference: "5.23 ", },
+          { column: "69 thru 70 ", name: "ICAO Code (2) ", reference: "5.14 ", },
+          { column: "71 thru 75 ", name: "Transitions Altitude (5) ", reference: "5.53 ", },
+          { column: "76 thru 80 ", name: "Transition Level (5) ", reference: "5.53 ", },
+          { column: "81 ", name: "Public/Military Indicator (1) ", reference: "5.177 ", },
+          { column: "82 thru 84 ", name: "Time Zone (3) ", reference: "5.178 ", },
+          { column: "85 ", name: "Daylight Indicator (1) ", reference: "5.179 ", },
+          { column: "86 ", name: "Magnetic/True Indicator (1) ", reference: "5.165 ", },
+          { column: "87 thru 89 ", name: "Datum Code (3) ", reference: "5.197 ", },
+          { column: "90 thru 93 ", name: "Reserved (Expansion) (4) ", reference: " ", },
+          { column: "94 thru 123 ", name: "Airport Name (30) ", reference: "5.71 ", },
+          { column: "124 thru 128 ", name: "File Record Number (5) ", reference: "5.31 ", },
+          { column: "129 thru 132 ", name: "Cycle Date (4) ", reference: "5.32 ", },
+        ],
+      },
+      {
+        title: "4.1.7.2 Airport Continuation Records", layout: [
+
+          { column: "1 ", name: "Record Type (1) ", reference: "5.2 ", },
+          { column: "2 thru 4 ", name: "Customer/Area Code (3) ", reference: "5.3 ", },
+          { column: "5 ", name: "Section Code (1) ", reference: "5.4 ", },
+          { column: "6 ", name: "Blank (Spacing) (1) ", reference: " ", },
+          { column: "7 thru 10 ", name: "Airport ICAO Identifier (4) ", reference: "5.6 ", },
+          { column: "11 thru 12 ", name: "ICAO Code (2) ", reference: "5.14 ", },
+          { column: "13 ", name: "Subsection Code (1) ", reference: "5.5 ", },
+          { column: "14 thru 16 ", name: "ATA/IATA Designator (3) ", reference: "5.107 ", },
+          { column: "17 thru 18 ", name: "Reserved (Expansion) (2) ", reference: " ", },
+          { column: "19 thru 21 ", name: "Blank (Spacing) (3) ", reference: " ", },
+          { column: "22 ", name: "Continuation Record No. (1) ", reference: "5.16 ", },
+          { column: "23 ", name: "Application Type (1) ", reference: "5.91 ", },
+          { column: "24 thru 92 ", name: "Notes (69) ", reference: "5.61 ", },
+          { column: "93 thru 123 ", name: "Reserved (Expansion) (31) ", reference: " ", },
+          { column: "124 thru 128 ", name: "File Record No. (5) ", reference: "5.31 ", },
+          { column: "129 thru 132 ", name: "Cycle Date (4) ", reference: "5.32 ", },
+        ],
+      },
+      {
+        title: "4.1.7.3 Airport Flight Planning Continuation Records", layout: [
+
+          { column: "1 ", name: "Record Type (1) ", reference: "5.2 ", },
+          { column: "2 thru 4 ", name: "Customer/Area Code (3) ", reference: "5.3 ", },
+          { column: "5 ", name: "Section Code (1) ", reference: "5.4 ", },
+          { column: "6 ", name: "Blank (Spacing) (1) ", reference: " ", },
+          { column: "7 thru 10 ", name: "Airport ICAO Identifier (4) ", reference: "5.6 ", },
+          { column: "11 thru 12 ", name: "ICAO Code (2) ", reference: "5.14 ", },
+          { column: "13 ", name: "Subsection Code (1) ", reference: "5.5 ", },
+          { column: "14 thru 16 ", name: "ATA/IATA Designator (3) ", reference: "5.107 ", },
+          { column: "17 thru 18 ", name: "Reserved (Expansion) (2) ", reference: " ", },
+          { column: "19 thru 21 ", name: "Blank (Spacing) (3) ", reference: " ", },
+          { column: "22 ", name: "Continuation Record No. (1) ", reference: "5.16 ", },
+          { column: "23 ", name: "Application Type (1) ", reference: "5.91 ", },
+          { column: "24 thru 27 ", name: "FIR Identifier (4) ", reference: "5.116 ", },
+          { column: "28 thru 31 ", name: "UIR Identifier (4) ", reference: "5.116 ", },
+          { column: "32 ", name: "Start/End Indicator (1) ", reference: "5.152 ", },
+          { column: "33 thru 66 ", name: "Blank (Spacing) (34) ", reference: " ", },
+          { column: "67 ", name: "Controlled Airspace Indicator (1) ", reference: "5.217 ", },
+          { column: "68 thru 71 ", name: "Controlled Airspace Airport Ident (4) ", reference: "5.6 ", },
+          { column: "72 thru 73 ", name: "Controlled Airspace Airport ICAO (2) ", reference: "5.14 ", },
+          { column: "74 thru 123 ", name: "Blank (Spacing) (50) ", reference: " ", },
+          { column: "124 thru 128 ", name: "File Record No. (5) ", reference: "5.31 ", },
+          { column: "129 thru 132 ", name: "Cycle Data (4) ", reference: "5.32 ", },
+        ],
+      },
+
+    ],
+  },
+
   // 4.1.8 Airport Gate Records (PB)
 
   // 4.1.9 Airport SID/STAR/Approach (PD, PE and PF)
