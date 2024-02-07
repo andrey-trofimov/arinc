@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/arinc/static/css/main.868655f8.css",
-    "main.js": "/arinc/static/js/main.3c22df75.js",
+    "main.css": "/arinc/static/css/main.1a8b382f.css",
+    "main.js": "/arinc/static/js/main.caa917c7.js",
     "static/media/spinner.svg": "/arinc/static/media/spinner.d2bc742bb550822ee92d132584e85f5d.svg",
     "index.html": "/arinc/index.html",
     "static/media/ok.svg": "/arinc/static/media/ok.28c3e18ffb8938528d2543274a828ff0.svg",
-    "main.868655f8.css.map": "/arinc/static/css/main.868655f8.css.map",
-    "main.3c22df75.js.map": "/arinc/static/js/main.3c22df75.js.map"
+    "main.1a8b382f.css.map": "/arinc/static/css/main.1a8b382f.css.map",
+    "main.caa917c7.js.map": "/arinc/static/js/main.caa917c7.js.map"
   },
   "entrypoints": [
-    "static/css/main.868655f8.css",
-    "static/js/main.3c22df75.js"
+    "static/css/main.1a8b382f.css",
+    "static/js/main.caa917c7.js"
   ]
 }
